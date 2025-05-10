@@ -3,8 +3,7 @@ const axios = require("axios");
 const openGate = async (req, res) => {
   try {
     const piUrl = process.env.PI_BASE_URL + "/relay/relay1/on";
-
-    const piResponse = await axios.get(piUrl); // ติดต่อ Pi ผ่าน ZeroTier
+    const piResponse = await axios.get(piUrl);
 
     return res.status(200).json({
       message: "✅ Gate opened successfully",
@@ -16,4 +15,9 @@ const openGate = async (req, res) => {
   }
 };
 
-module.exports = { openGate };
+// ✅ เพิ่มฟังก์ชันทดสอบ
+const testGate = (req, res) => {
+  res.send("🧪 Gate test route working");
+};
+
+module.exports = { openGate, testGate };

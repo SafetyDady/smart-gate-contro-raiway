@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { openGate } = require("../controllers/gateController");
+const { openGate, testGate } = require("../controllers/gateController");
 
 router.get("/open", openGate);
+router.get("/test", testGate); // ✅ เพิ่ม route นี้
 
 module.exports = router;
