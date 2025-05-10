@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 const openGate = async (req, res) => {
   try {
     const piUrl = process.env.PI_BASE_URL + "/relay/relay1/on";
@@ -15,3 +17,9 @@ const openGate = async (req, res) => {
     return res.status(500).json({ error: "Mock gate open failed" });
   }
 };
+
+const testGate = (req, res) => {
+  res.send("✅ Gate test route working");
+};
+
+module.exports = { openGate, testGate };
